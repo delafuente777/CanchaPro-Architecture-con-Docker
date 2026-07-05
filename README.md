@@ -59,8 +59,8 @@ https://github.com/Cadennnnnn/canchapro-architecture
 | Pruebas unitarias JUnit 5 / Mockito | Completadas                       |
 | Swagger / OpenAPI                   | Completado                        |
 | ZIP nativo externo en Google Drive  | Completado                        |
-| Video defensa tecnica               | Pendiente                         |
-| Docker                              | Pendiente para Examen Transversal |
+| Video defensa tecnica               | Completado                        |
+| Docker                              | Completado                        |
 
 ---
 
