@@ -20,7 +20,8 @@ Utilice los siguientes enlaces externos para descargar la version lista para eje
 | Componente                                                 | Descripcion                                                                                                                                                                                                             | Enlace de Descarga / Visualizacion                                                                              |
 | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
 | **Version Sin Docker** <br>*(Arranque Nativo)*             | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat`, ordenado por fases: **1. Eureka Server -> 2. Microservicios de negocio -> 3. API Gateway**.                 | [Descargar ZIP Nativo aqui](https://drive.google.com/file/d/1qMaLjZfhQrqIoAUqUyzTTPQL-yb394uu/view?usp=sharing) |
-| **Version Con Docker** <br>*(Avance Examen Transversal)*   | Pendiente para el Examen Transversal. Para la Evaluacion Parcial 3 se presenta la puesta en marcha nativa sin Docker, segun lo indicado por el docente.                                                                 | Pendiente para Examen Transversal                                                                               |
+| **Version Con Docker** <br>*(Entorno Contenerizado)* | Entorno completo de microservicios unificado bajo contenedores independientes. Incluye Dockerfile optimizado por modulo y un archivo docker-compose.yml listo para su despliegue inmediato. | Completado y Funcional |
+
 | **Video de Defensa Tecnica** <br>*(Evaluacion Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento del sistema, testing, uso de Eureka, API Gateway y el aporte tecnico individual. **Duracion ideal: 15 minutos. Maximo permitido: 18 minutos.** | [Ver Video Explicativo aqui](https://youtu.be/yaZx5VRmGps)
 
 ---
@@ -194,6 +195,38 @@ El archivo `arrancar-nativo.bat` levanta los componentes en el siguiente orden:
 ```
 
 Esto permite validar que el ecosistema completo funcione correctamente.
+
+---
+
+## 7.1 Puesta en marcha con Docker (Entorno Contenerizado)
+
+El sistema cuenta con soporte completo para Docker y Docker Compose, permitiendo levantar toda la infraestructura (Bases de datos independientes, Servidor Eureka, API Gateway y Microservicios de negocio) mediante un unico bloque de comandos.
+
+### Requisitos previos para ejecucion con Docker:
+* Docker Desktop instalado y activo.
+* Puertos libres en el Host: 8761 (Eureka), 8080 (Gateway) y los puertos de las bases de datos.
+
+### Pasos para el despliegue:
+
+1. **Compilacion previa de los artefactos:**
+   Antes de construir las imagenes de Docker, es necesario compilar el proyecto a nivel raiz para generar los archivos `.jar` actualizados dentro de cada modulo:
+   ```bash
+   mvn clean package -DskipTests
+
+Levantar el ecosistema completo:
+Ejecute el siguiente comando en la raiz del proyecto para construir las imagenes locales y arrancar todos los contenedores en segundo plano (detached mode):
+
+Bash
+docker compose up -d --build
+Verificacion del entorno:
+
+Ver el estado de salud de los contenedores: docker compose ps
+
+Monitorear logs en tiempo real: docker compose logs -f
+
+Detener y remover la infraestructura: docker compose down
+
+Una vez que todos los contenedores muestren estado Up o Healthy, el sistema estara completamente operativo y centralizado a traves del API Gateway en el puerto 8080.
 
 ---
 
@@ -416,7 +449,7 @@ API Gateway: Completado
 Testing unitario: Completado
 Swagger/OpenAPI: Completado
 ZIP sin Docker: Disponible en Google Drive
-Docker: Pendiente para Examen Transversal
+Docker: Completado
 Video defensa tecnica: Pendiente de carga
 ```
 
