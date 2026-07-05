@@ -1,0 +1,76 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**
+
+        - id: ms-usuarios
+          uri: lb://MS-USUARIOS
+          predicates:
+            - Path=/api/usuarios/**
+
+        - id: ms-canchas
+          uri: lb://MS-CANCHAS
+          predicates:
+            - Path=/api/canchas/**
+
+        - id: ms-reservas
+          uri: lb://MS-RESERVAS
+          predicates:
+            - Path=/api/reservas/**
+
+        - id: ms-disponibilidad
+          uri: lb://MS-DISPONIBILIDAD
+          predicates:
+            - Path=/api/disponibilidad/**
+
+        - id: ms-pagos
+          uri: lb://MS-PAGOS
+          predicates:
+            - Path=/api/pagos/**
+
+        - id: ms-notificaciones
+          uri: lb://MS-NOTIFICACIONES
+          predicates:
+            - Path=/api/notificaciones/**
+
+        - id: ms-calificaciones
+          uri: lb://MS-CALIFICACIONES
+          predicates:
+            - Path=/api/calificaciones/**
+
+        - id: ms-reportes
+          uri: lb://MS-REPORTES
+          predicates:
+            - Path=/api/reportes/**
+
+        - id: ms-admin
+          uri: lb://MS-ADMIN
+          predicates:
+            - Path=/api/admin/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

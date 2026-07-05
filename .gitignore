@@ -1,0 +1,43 @@
+# Maven / Java
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Spring Boot
+*.log
+logs/
+
+# Distribuciones y comprimidos
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Archivos de ejecucion externos
+*.bat
+*.cmd
+*.sh
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Bases de datos locales
+*.db
+*.sqlite
+
+# Env
+.env
+.env.*

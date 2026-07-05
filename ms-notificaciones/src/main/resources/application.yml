@@ -1,0 +1,48 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: ms-notificaciones
+
+  datasource:
+    url: jdbc:mysql://mysql-db:3306/canchas_db?createDatabaseIfNotExist=true
+    password: "root"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,mappings
+
+logging:
+  level:
+    root: INFO
+    com.canchapro: DEBUG

@@ -1,0 +1,186 @@
+Subtitulos / transcripcion del video de defensa tecnica
+
+Proyecto: CanchaPro Architecture
+Asignatura: Desarrollo FullStack I - DSY1103
+Integrantes: Caden Alexander Nieto Gonzalez y Sebastian De La Fuente
+
+PT1 — Presentación del Proyecto y Explicación del README
+Saludo e Introducción
+Muy buenas, profesor. Hoy le vamos a presentar CanchaPro, un proyecto basado en un sistema de agendamiento de canchas deportivas.
+
+Revisión del README
+Lo primero que realizaremos será revisar brevemente el README del proyecto para conocer su estructura general y funcionamiento. Como podemos observar, este es un sistema multimódulo desarrollado por Caden Nieto y Sebastián De la Fuente.
+
+Versiones de Distribución
+El proyecto cuenta con dos versiones de distribución:
+
+Una versión de ejecución nativa sin Docker.
+
+Una versión con Docker.
+
+Para esta defensa utilizaremos la versión sin Docker, donde ejecutaremos los servicios directamente mediante Spring Boot.
+
+Tecnologías Utilizadas
+Dentro de la arquitectura utilizada contamos con tecnologías como:
+
+Spring Boot
+
+Spring Cloud
+
+Eureka Server
+
+API Gateway
+
+Microservicios independientes
+
+Comunicación mediante REST
+
+Documentación Swagger/OpenAPI
+
+Pruebas unitarias
+
+Componentes de la Arquitectura
+La arquitectura general del sistema está compuesta por:
+
+Eureka Server: Encargado del registro y descubrimiento de servicios.
+
+API Gateway: Encargado de centralizar las peticiones hacia los microservicios.
+
+Microservicios de negocio: Donde se encuentran las funcionalidades principales.
+
+Bases de datos: Independientes por cada servicio.
+
+Requisitos de Ejecución Nativa
+Para ejecutar el proyecto de forma nativa se requieren los siguientes elementos:
+
+Java 21 instalado.
+
+Maven configurado.
+
+MySQL funcionando localmente.
+
+Bases de datos configuradas según los archivos application.yml.
+
+Puertos disponibles: desde el 8761 para Eureka, y desde el 8080 hasta el 8090 para los demás servicios.
+
+Script de Arranque
+También se especifica el proceso de ejecución mediante el archivo arrancar-nativo.bat, el cual permite levantar todos los servicios automáticamente.
+
+Seguridad y Pruebas Unitarias
+Más abajo tenemos definido cómo se implementa la seguridad del sistema y las pruebas unitarias, llevando a cabo el código a ejecución con el comando mvn clean test.
+
+Evidencias de Ejecución
+Si seguimos bajando, llegaremos a la sección de evidencias de ejecución, que es el documento donde registraremos las evidencias de:
+
+Ejecución de pruebas unitarias.
+
+Compilación del proyecto padre.
+
+Registro de servicios en Eureka.
+
+Validación del API Gateway.
+
+Validación de endpoints principales.
+
+Validación de Swagger/OpenAPI.
+
+Puesta en marcha sin Docker.
+
+Estructura y Buenas Prácticas
+En el punto 15 ya encontraremos la estructura general del proyecto final en el que Caden y yo estuvimos trabajando. Como buenas prácticas, el repositorio contiene únicamente código fuente, configuración y documentación.
+
+PT2 — Inicio del Sistema
+Configuración de la Base de Datos
+Una vez revisada la documentación del proyecto, procederemos con la ejecución del sistema. Primero iniciamos XAMPP y verificamos que MySQL esté configurado utilizando el puerto 3306, ya que los microservicios utilizan bases de datos locales.
+
+Ejecución del Script Nativo
+Posteriormente nos ubicamos en la carpeta del proyecto y ejecutamos el archivo de inicio nativo:
+.\arrancar-nativo.bat
+
+Orden de Encendido de los Servicios
+Este script inicia los componentes principales del sistema en el orden correspondiente:
+
+Primero, Eureka Server.
+
+Luego, los microservicios de seguridad y negocio.
+
+Finalmente, el API Gateway.
+
+Validación en Eureka
+Una vez iniciados los servicios, podemos acceder a Eureka mediante http://localhost:8761, donde verificamos que los microservicios se encuentren registrados correctamente.
+
+PT3 — Revisión del pom.xml
+El Archivo Padre de Maven
+A continuación, revisaremos el archivo pom.xml principal del proyecto. Este archivo corresponde al padre Maven del sistema y permite administrar todos los microservicios como módulos independientes dentro de un mismo proyecto.
+
+Definición de Módulos
+Aquí podemos observar la definición de los módulos:
+
+eureka-server
+
+api-gateway
+
+auth-service
+
+Microservicios de negocio
+
+Gracias a esta estructura podemos ejecutar comandos Maven sobre todo el proyecto.
+
+PT4 — Documentación del Proyecto
+Carpeta de Documentación
+Continuando con la revisión, mostramos la carpeta docs, donde se encuentra la documentación asociada a las evidencias de ejecución.
+
+Contenido de las Evidencias
+Este documento registra información relacionada con:
+
+Pruebas del sistema.
+
+Compilación.
+
+Ejecución de servicios.
+
+Validaciones mediante el Gateway.
+
+Swagger/OpenAPI.
+
+PT5 — Ejecución Maven y Pruebas
+Comando de Validación
+Ahora realizaremos la validación mediante Maven. Ejecutamos: mvn clean test. Este comando limpia compilaciones anteriores, compila nuevamente el proyecto y ejecuta la fase de pruebas configurada.
+
+Resultado de la Compilación
+Como resultado obtenemos: BUILD SUCCESS, lo que confirma que todos los módulos del proyecto compilan correctamente. En esta parte del video podemos ver cómo abrimos el README desde la terminal.
+
+Documentación Técnica OpenAPI
+Aquí estamos accediendo a la documentación técnica OpenAPI del microservicio. Esto corresponde al archivo generado automáticamente que describe todos los endpoints del sistema en formato JSON. Este documento es utilizado por Swagger UI para construir la interfaz gráfica que veremos luego.
+
+Interfaz Gráfica de Swagger
+Ahora pasamos a revisar la documentación Swagger de los microservicios. Cada servicio cuenta con su propia documentación OpenAPI, permitiendo visualizar y probar sus endpoints disponibles.
+
+Ejemplo: API de Usuarios
+En este caso estamos revisando: CanchaPro Usuarios API. Aquí podemos observar que corresponde al microservicio encargado del CRUD de usuarios. Swagger nos muestra:
+
+Versión de la API.
+
+Descripción del servicio.
+
+Endpoints disponibles.
+
+Modelos de entrada y salida.
+
+Dentro del apartado de Usuarios tenemos las operaciones principales: GET, PUT, PATCH y POST.
+
+Pruebas Mediante API Gateway
+Finalmente, realizaremos pruebas directamente mediante el API Gateway. Al ejecutar cada petición, verificamos que los servicios respondan correctamente mediante: StatusCode: 200.
+
+Conclusiones de la Validación
+Esto confirma que:
+
+Eureka registró los servicios correctamente.
+
+El Gateway está funcionando.
+
+Las rutas están disponibles.
+
+Los microservicios responden correctamente.
+
+Con esto finalizamos la demostración del funcionamiento del sistema CanchaPro en su versión con y sin Docker.
