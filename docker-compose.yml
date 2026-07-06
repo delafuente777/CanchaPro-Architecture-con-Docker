@@ -25,6 +25,11 @@ services:
     build: ./ms-usuarios
     ports:
       - "8082:8082"
+    environment:
+    - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/usuarios_db?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     networks:
       - canchapro-network
     depends_on:
@@ -46,11 +51,16 @@ services:
     build: ./auth-service
     ports:
       - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/auth_db?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     networks:
       - canchapro-network
     depends_on:
       mysql-db:
-        condition: service_started
+        condition: service_healthy
       eureka-server:
         condition: service_started
 
@@ -103,6 +113,11 @@ services:
     build: ./ms-calificaciones
     ports:
       - "8089:8089"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/calificaciones_db?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     networks:
       - canchapro-network
     depends_on:
