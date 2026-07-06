@@ -4,6 +4,12 @@ Proyecto: CanchaPro Architecture
 Asignatura: Desarrollo FullStack I - DSY1103
 Integrantes: Caden Alexander Nieto Gonzalez y Sebastian De La Fuente
 
+PT0 - DOCKER 
+El proceso para iniciar el proyecto canchaPro con docker es simple. 
+Lo primero que tenemos que hacer es bajar el proyecto zip al destino que nosotros queramos. 
+Luego procedemos a abrir la terminal para dirigirnos a ella. Seguido de esto encendemos la base de datos, esperamos un poco y encendemos eureka. 
+Finalmente pasados unos segundos, el resto de la arquitectura. Luego de una espera de 2 minutos aproximadamente se podrán ver reflejados todos los micro servicios en el puerto 8761.
+
 PT1 — Presentación del Proyecto y Explicación del README
 Saludo e Introducción
 Muy buenas, profesor. Hoy le vamos a presentar CanchaPro, un proyecto basado en un sistema de agendamiento de canchas deportivas.
