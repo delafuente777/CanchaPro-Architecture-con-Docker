@@ -22,7 +22,7 @@ Utilice los siguientes enlaces externos para descargar la version lista para eje
 | **Version Sin Docker** <br>*(Arranque Nativo)*             | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat`, ordenado por fases: **1. Eureka Server -> 2. Microservicios de negocio -> 3. API Gateway**.                 | [Descargar ZIP Nativo aqui](https://drive.google.com/file/d/1qMaLjZfhQrqIoAUqUyzTTPQL-yb394uu/view?usp=sharing) |
 | **Version Con Docker** <br>*(Entorno Contenerizado)* | Entorno completo de microservicios unificado bajo contenedores independientes. Incluye Dockerfile optimizado por modulo y un archivo docker-compose.yml listo para su despliegue inmediato. | Completado y Funcional |
 
-| **Video de Defensa Tecnica** <br>*(Evaluacion Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento del sistema, testing, uso de Eureka, API Gateway y el aporte tecnico individual. **Duracion ideal: 15 minutos. Maximo permitido: 18 minutos.** | [Ver Video Explicativo aqui](https://youtu.be/yaZx5VRmGps)
+| **Video de Defensa Tecnica** <br>*(Evaluacion Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento del sistema, testing, uso de Eureka, API Gateway y el aporte tecnico individual. **Duracion ideal: 15 minutos. Maximo permitido: 18 minutos.** | [Ver Video Explicativo aqui](https://youtu.be/BaXGneCWmiY?si=yJjXw6CGzXhojzgy)
 
 ---
 
